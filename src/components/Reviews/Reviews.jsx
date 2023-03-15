@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
-import { fetchMovieReviews } from "services/searchAPI"
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchMovieReviews } from 'services/searchAPI';
 
 export const Reviews = () => {
-  
-    const [movieReviews, setMovieReview] = useState([]);
-    const { movieId } = useParams();
+  const [movieReviews, setMovieReview] = useState([]);
+  const { movieId } = useParams();
 
-    useEffect(() => {
-        fetchMovieReviews(movieId).then(responseMovieReviews => {
-            setMovieReview(responseMovieReviews.results)
-        })
-    })
+  useEffect(() => {
+    fetchMovieReviews(movieId).then(responseMovieReviews => {
+      setMovieReview(responseMovieReviews.results);
+    });
+  }, [movieId]);
 
-    return (
-        <>
-            {movieReviews.map(({id, author, content }) => {
-                return (
-                    <ul key={id}>
-                        <li>{author}</li>
-                        <li>{content}</li>
-                        
-                </ul>
-            )
-        })}
-        
-        </>)
-}
+  return (
+    <>
+      {movieReviews.map(({ id, author, content }) => {
+        return (
+          <ul key={id}>
+            <li>{author}</li>
+            <li>{content}</li>
+          </ul>
+        );
+      })}
+    </>
+  );
+};
