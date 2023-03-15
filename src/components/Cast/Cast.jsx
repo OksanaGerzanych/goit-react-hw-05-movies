@@ -5,7 +5,7 @@ import { fetchMovieCast } from "services/searchAPI"
 
 export const Cast = () => {
     const [movieCast, setMovieCast] = useState([]);
-    const { movieId } = useParams;
+    const { movieId } = useParams();
 
     useEffect(() => {
         fetchMovieCast(movieId).then(responceMovieCast => {
@@ -17,8 +17,8 @@ export const Cast = () => {
         <div>
             {movieCast.length > 0 ? movieCast.map(({ id, profile_path, name, character }) => (
                 <div key={id}>
-                    <img src={profile_path} alt={name} />
-                    <h2>Actor: {name}</h2>
+                    <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} width={100} />
+                    <p>Actor: {name}</p>
                     <p>Character: {character}</p>
                 </div>
             )) : <p>Sorry, there isn't any info</p>}

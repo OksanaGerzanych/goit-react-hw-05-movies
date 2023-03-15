@@ -28,7 +28,8 @@ export const fetchTrendingMovies = async () => {
 export const fetchMovieDetails = async (id) => {
   try {
     const response = await axios.get(`${DETALS_URL}/${id}?api_key=${API_KEY}&language=en-US`) 
-  return response.data;
+    return response.data;
+    
   } catch (error) {
     console.error(error.message);
   }
@@ -38,9 +39,19 @@ export const fetchMovieDetails = async (id) => {
 export const fetchMovieCast = async (id) => {
   try {
     const response = await axios.get(`${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`) 
-  return response.data;
+    return response.data;
+    
   } catch (error) {
     console.error(error.message);
   }
  
 };
+
+export const fetchMovieReviews = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`) 
+    return response.data
+  } catch (error) {
+    console.error(error.message);
+  }
+}
