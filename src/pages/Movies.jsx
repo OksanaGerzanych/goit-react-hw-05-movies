@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { fetchSearchMovies } from 'services/searchAPI';
 import { MovieList } from 'components/MoviesList/MoviesList';
+import { Loader } from 'components/Loader/Loader';
 
 export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,13 +14,14 @@ export const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   
-    
+
     useEffect(() => {
         if (!nameMovie) {
-            return;
+        return;
       }
       setMovies([]);
-        setLoading(true);
+      setLoading(true);
+
         fetchSearchMovies(nameMovie)
             .then(responseMovies => {
               setMovies(responseMovies.results);
@@ -42,9 +44,7 @@ export const Movies = () => {
        {error && <h2>{error.message}</h2>}
           <SearchBox value={nameMovie} onSearch={handelSubmit} />
            {movies.length >0 && <MovieList  movies={movies}/>}
-          
-          {/* <MovieDetails /> */}
-          {loading && <p>Load more...</p>}
+          {loading && <Loader/>}
     </main>
   );
 };
