@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/searchAPI';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [movieReviews, setMovieReview] = useState([]);
   const { movieId } = useParams();
 
@@ -14,14 +14,18 @@ export const Reviews = () => {
 
   return (
     <>
-      {movieReviews.map(({ id, author, content }) => {
-        return (
-          <ul key={id}>
-            <li>{author}</li>
-            <li>{content}</li>
-          </ul>
-        );
-      })}
+      {movieReviews > 0
+        ? movieReviews.map(({ id, author, content }) => {
+            return (
+              <ul key={id}>
+                <li>{author}</li>
+                <p>{content}</p>
+              </ul>
+            );
+          })
+        : 'Sorry, we dont have any review for this movie'}
     </>
   );
 };
+
+export default Reviews;

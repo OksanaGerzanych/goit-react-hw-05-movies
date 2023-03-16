@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/searchAPI';
+import { CiImageOff } from 'react-icons/ci'
 
-export const Cast = () => {
+const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const { movieId } = useParams();
 
@@ -17,11 +18,11 @@ export const Cast = () => {
       {movieCast.length > 0 ? (
         movieCast.map(({ id, profile_path, name, character }) => (
           <div key={id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+            {profile_path ? <img
+              src={`https://image.tmdb.org/t/p/w200${profile_path}`}
               alt={name}
-              width={100}
-            />
+              width={100} 
+            /> : <CiImageOff size={100} /> }
             <p>Actor: {name}</p>
             <p>Character: {character}</p>
           </div>
@@ -32,3 +33,5 @@ export const Cast = () => {
     </div>
   );
 };
+
+export default Cast;
