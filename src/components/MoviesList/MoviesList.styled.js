@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const MovieLink = styled(Link)`
   text-decoration: none;
+
   color: black;
   padding: 2px 8px;
   &:hover {
@@ -16,4 +17,10 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-`;
+  list-style-type: square;
+  
+`
+export const Item = styled.li`
+   font-size: 20px;
+  `
+

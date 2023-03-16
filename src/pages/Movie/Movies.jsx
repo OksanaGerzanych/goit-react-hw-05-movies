@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { fetchSearchMovies } from 'services/searchAPI';
 import { MovieList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
+import { MovieContainer } from './Movie.styled';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,12 +38,12 @@ const Movies = () => {
   };
 
   return (
-    <main>
+    < MovieContainer>
       {error && <h2>{error.message}</h2>}
       <SearchBox value={nameMovie} onSearch={handelSubmit} />
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
-    </main>
+    </ MovieContainer>
   );
 };
 export default Movies;
