@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Wrapper, Input, Icon, SearchFormButton, SearchForm } from './SearchBox.styled';
 
-export const SearchBox = ({ onSearch }) => {
+export const SearchBox = ({ onSubmit }) => {
 
   const [query, setQuery] = useState('');
 
@@ -15,20 +15,20 @@ export const SearchBox = ({ onSearch }) => {
       alert ('Please enter your search query :)');
       return;
     }
-    onSearch(query);
-    setQuery('');
+    onSubmit(query);
+     setQuery('');
   };
 
 
   return (
     <Wrapper>
-      <SearchForm onSubmit={handelSubmit}>
+      <SearchForm onSubmit={handelSubmit}> 
         <Input
           type="text"
           name="query"
           value={query}
           autocomplete="off"
-          onChange={queryChange}
+          onChange={queryChange }
         />
         <SearchFormButton type="submit">
           <Icon />

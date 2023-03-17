@@ -34,13 +34,15 @@ const Movies = () => {
   const handelSubmit = query => {
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
-    setMovies([]);
+    console.log(nextParams)
+    // setMovies([]);
   };
 
+   
   return (
     < MovieContainer>
       {error && <h2>{error.message}</h2>}
-      <SearchBox value={nameMovie} onSearch={handelSubmit} />
+      <SearchBox  onSubmit={handelSubmit} />
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
     </ MovieContainer>

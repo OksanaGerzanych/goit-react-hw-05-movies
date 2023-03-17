@@ -23,7 +23,7 @@ const Cast = () => {
               src={`https://image.tmdb.org/t/p/w200${profile_path}`}
               alt={name}
               width={100} 
-            /> : <CiImageOff size={100} /> }
+            /> : <CiImageOff size={125} /> }
             <p> <b>{name}</b> </p>
             <p> Character: {character}</p>
           </Container>

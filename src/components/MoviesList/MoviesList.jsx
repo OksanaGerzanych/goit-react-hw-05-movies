@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { MovieLink, List } from './MoviesList.styled';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Item } from './MoviesList.styled';
+import { Suspense } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieList = ({ movies }) => {
 
@@ -18,7 +20,9 @@ export const MovieList = ({ movies }) => {
           );
         })}
       </List>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
