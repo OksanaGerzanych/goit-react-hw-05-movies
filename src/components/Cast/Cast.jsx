@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/searchAPI';
-import { CiImageOff } from 'react-icons/ci'
-import { CastContainer, Container  } from './Cast.styled'
+import { CiImageOff } from 'react-icons/ci';
+import { CastContainer, Container } from './Cast.styled';
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
@@ -19,12 +19,18 @@ const Cast = () => {
       {movieCast.length > 0 ? (
         movieCast.map(({ id, profile_path, name, character }) => (
           <Container key={id}>
-            {profile_path ? <img
-              src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-              alt={name}
-              width={100} 
-            /> : <CiImageOff size={125} /> }
-            <p> <b>{name}</b> </p>
+            {profile_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                alt={name}
+                width={100}
+              />
+            ) : (
+              <CiImageOff size={125} />
+            )}
+            <p>
+              <b>{name}</b>
+            </p>
             <p> Character: {character}</p>
           </Container>
         ))

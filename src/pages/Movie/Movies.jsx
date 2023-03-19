@@ -5,6 +5,7 @@ import { fetchSearchMovies } from 'services/searchAPI';
 import { MovieList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
 import { MovieContainer } from './Movie.styled';
+import { Toaster } from 'react-hot-toast';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,18 +35,18 @@ const Movies = () => {
   const handelSubmit = query => {
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
-    console.log(nextParams)
+    console.log(nextParams);
     // setMovies([]);
   };
 
-   
   return (
-    < MovieContainer>
+    <MovieContainer>
       {error && <h2>{error.message}</h2>}
-      <SearchBox  onSubmit={handelSubmit} />
+      <SearchBox onSubmit={handelSubmit} />
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
-    </ MovieContainer>
+      <Toaster duration={1500} position="top-right" reverseOrder={false} />
+    </MovieContainer>
   );
 };
 export default Movies;

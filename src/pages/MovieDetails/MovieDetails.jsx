@@ -1,5 +1,5 @@
 import { fetchMovieDetails } from 'services/searchAPI';
-import {  Outlet, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { GoBack } from 'components/GoBack/GoBack';
@@ -28,7 +28,7 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const { poster_path, title, vote_average, overview, genres } = movieDetail;
-
+  
   //const voteScore = vote_average.toFixed(1);
   return (
     <>

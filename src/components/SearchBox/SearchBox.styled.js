@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { HiSearch } from "react-icons/hi";
+import styled from 'styled-components';
+import { HiSearch } from 'react-icons/hi';
 
 export const Wrapper = styled.div`
   display: inline-flex;
@@ -16,19 +16,19 @@ export const SearchForm = styled.form`
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
-`
+`;
 
 export const Input = styled.input`
-  padding: 8px 32px 8px 8px;
+  padding: 8px 40px 8px 8px;
   border-radius: 4px;
   outline: none;
   font: inherit;
+  width: 300px;
 `;
-
 
 export const SearchFormButton = styled.button`
   display: inline-block;
-  width: 38px;
+  width: 100px;
   height: 38px;
   border: 0;
   background-size: 40%;
@@ -38,15 +38,16 @@ export const SearchFormButton = styled.button`
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;
-  
+  font-size: 20px;
+
   &:hover {
-   opacity: 1; 
+    opacity: 1;
   }
-`
+`;
 export const Icon = styled(HiSearch)`
   width: 25px;
   height: 25px;
   position: absolute;
-  right: 7px;
-  top: 9px;
+  right: 110px;
+  top: 7px;
 `;

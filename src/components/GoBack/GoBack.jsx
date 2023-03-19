@@ -1,10 +1,13 @@
-
 import { RxDoubleArrowLeft } from 'react-icons/rx';
-import { GoBackButton, ButtonLink } from "./GoBack.styled";
-
+import { GoBackBox, GoBackLink } from './GoBack.styled';
 
 export const GoBack = ({ to }) => {
-    return (
-        <ButtonLink to={to}> <GoBackButton type="button" > <RxDoubleArrowLeft size={16}/> Go back</GoBackButton> </ButtonLink>
-    )
-}
+  return (
+    <GoBackBox>
+      <GoBackLink to={to}>
+        {' '}
+        <RxDoubleArrowLeft size={16} /> Go back{' '}
+      </GoBackLink>
+    </GoBackBox>
+  );
+};

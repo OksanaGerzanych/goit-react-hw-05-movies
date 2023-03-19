@@ -6,8 +6,7 @@ import { Suspense } from 'react';
 import { Loader } from 'components/Loader/Loader';
 
 export const MovieList = ({ movies }) => {
-
-   const location = useLocation();
+  const location = useLocation();
 
   return (
     <div>
@@ -15,7 +14,9 @@ export const MovieList = ({ movies }) => {
         {movies.map(({ id, title }) => {
           return (
             <Item key={id}>
-              <MovieLink to={`/movies/${id}`} state={{ from: location }} >{title}</MovieLink>
+              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </MovieLink>
             </Item>
           );
         })}
@@ -32,6 +33,6 @@ MovieList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-    }),
+    })
   ),
 };
