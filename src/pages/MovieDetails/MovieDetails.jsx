@@ -29,7 +29,7 @@ const MovieDetails = () => {
 
   const { poster_path, title, vote_average, overview, genres } = movieDetail;
   
-  //const voteScore = vote_average.toFixed(1);
+
   return (
     <>
       <GoBack to={backLinkHref} />
@@ -47,7 +47,7 @@ const MovieDetails = () => {
           <Info>
             <h1>{title}</h1>
             <Text>
-              User Score: <Span>{vote_average}</Span>
+              User Score: <Span>{vote_average?.toFixed(1)}</Span>
             </Text>
             <Text>Overview</Text>
             <Span>{overview}</Span>
